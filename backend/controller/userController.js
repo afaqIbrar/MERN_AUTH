@@ -58,18 +58,14 @@ const loginUser = asyncHandler(async (req,res) => {
         res.status(400)
         throw new Error('Invalid Credentials')
     }
-
-
-    res.json({message:'Login User'})
 })
 
 // @desc  Get User data
 // @route GET /api/users/me
 // @access Private
 const getMe = asyncHandler(async (req,res) => {
-    const {_id,name,email} = await User.findById(req.user.id);
     res.status(200) 
-    res.json({_id,name,email})
+    res.json(req.user)
 })
 
 

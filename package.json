@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "dev" : "concurrently \"npm run server\" \"npm run client \"",
+    "heroku-postbuil" : "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [
     "Afaq",
@@ -24,6 +26,7 @@
     "mongoose": "^8.3.2"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "nodemon": "^3.1.0"
   }
 }
